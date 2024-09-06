@@ -1,20 +1,30 @@
 import { useState, type ReactNode } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import RNSelect2, { type RNSelect2Item } from 'rn-select2';
 import { groupedCountryList, countryList } from '../../src/data';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 
 type DemoSectionProps = {
   title: string;
   description: string;
+  value?: string;
   children: ReactNode;
 };
 
-const DemoSection = ({ title, description, children }: DemoSectionProps) => (
-  <View style={styles.section}>
+const DemoSection = ({
+  title,
+  description,
+  value,
+  children,
+}: DemoSectionProps) => (
+  <Animated.View layout={LinearTransition} style={styles.section}>
     <Text style={styles.sectionTitle}>{title}</Text>
     <Text style={styles.description}>{description}</Text>
     {children}
-  </View>
+    <Animated.View layout={LinearTransition}>
+      <Text style={styles.result}>Selected: {value ? value : 'None'}</Text>
+    </Animated.View>
+  </Animated.View>
 );
 
 const RNSelect2Demo = () => {
@@ -24,12 +34,13 @@ const RNSelect2Demo = () => {
   const [multiLinear, setMultiLinear] = useState<RNSelect2Item[] | null>(null);
 
   return (
-    <ScrollView style={styles.container}>
+    <Animated.ScrollView style={styles.container}>
       <Text style={styles.title}>RNSelect2 Demo</Text>
 
       <DemoSection
         title="Single Selection (Grouped)"
         description="Select a single country from a grouped list of countries by continent."
+        value={singleGrouped?.label}
       >
         <RNSelect2
           data={groupedCountryList}
@@ -39,14 +50,12 @@ const RNSelect2Demo = () => {
           }}
           placeholder="Select a country"
         />
-        <Text style={styles.result}>
-          Selected: {singleGrouped ? singleGrouped.label : 'None'}
-        </Text>
       </DemoSection>
 
       <DemoSection
         title="Multiple Selection (Grouped)"
         description="Select multiple countries from a grouped list of countries by continent."
+        value={multiGrouped?.map((item) => item.label)?.join(', ')}
       >
         <RNSelect2
           data={groupedCountryList}
@@ -54,29 +63,24 @@ const RNSelect2Demo = () => {
           placeholder="Select countries"
           multiSelect={true}
         />
-        <Text style={styles.result}>
-          Selected:{' '}
-          {multiGrouped?.map((item) => item.label)?.join(', ') || 'None'}
-        </Text>
       </DemoSection>
 
       <DemoSection
         title="Single Selection (Linear)"
         description="Select a single country from a flat list of all countries."
+        value={singleLinear?.label}
       >
         <RNSelect2
           data={countryList}
           onSelect={(item) => setSingleLinear(item)}
           placeholder="Select a country"
         />
-        <Text style={styles.result}>
-          Selected: {singleLinear ? singleLinear.label : 'None'}
-        </Text>
       </DemoSection>
 
       <DemoSection
         title="Multiple Selection (Linear)"
         description="Select multiple countries from a flat list of all countries."
+        value={multiLinear?.map((item) => item.label)?.join(', ')}
       >
         <RNSelect2
           data={countryList}
@@ -84,10 +88,6 @@ const RNSelect2Demo = () => {
           placeholder="Select countries"
           multiSelect={true}
         />
-        <Text style={styles.result}>
-          Selected:{' '}
-          {multiLinear?.map((item) => item.label)?.join(', ') || 'None'}
-        </Text>
       </DemoSection>
 
       <DemoSection
@@ -132,7 +132,7 @@ const RNSelect2Demo = () => {
           }}
         />
       </DemoSection>
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 
