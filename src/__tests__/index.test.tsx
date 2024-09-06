@@ -1,6 +1,6 @@
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { RNSelect2 } from '../RNSelect2'; // Adjust the import path as needed
-import { groupedCountryList, countryList } from '../data'; // Adjust the import path as needed
+import { groupedCountryList, countryList } from '../../data'; // Adjust the import path as needed
 
 describe('RNSelect2', () => {
   it('renders correctly with placeholder', () => {

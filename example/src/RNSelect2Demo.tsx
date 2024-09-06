@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Text, StyleSheet } from 'react-native';
 import RNSelect2, { type RNSelect2Item } from 'rn-select2';
-import { groupedCountryList, countryList } from '../../src/data';
+import { groupedCountryList, countryList } from '../../data';
 import Animated, { LinearTransition } from 'react-native-reanimated';
 
 type DemoSectionProps = {

@@ -30,6 +30,9 @@ jobs:
         run: |
           git config --global user.email "03balogun@gmail.com"
           git config --global user.name "Release God"
+          git remote set-url origin https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git
+        env:
+          PAT: ${{ secrets.PAT }}
 
       - name: Initialize npm config
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
