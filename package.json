@@ -48,8 +48,10 @@
     "react-native",
     "ios",
     "android",
+    "dropdown",
     "select-picker",
-    "select2"
+    "select2",
+    "multiple select"
   ],
   "repository": {
     "type": "git",
