@@ -49,9 +49,15 @@ export function RNSelect2(props: RNSelect2Props) {
 
   const filteredData = useFilteredData(data, searchQuery);
 
-  const handleRemoveItem = useCallback((item: RNSelect2Item) => {
-    setSelectedItems((prev) => prev.filter((i) => i.value !== item.value));
-  }, []);
+  const handleRemoveItem = useCallback(
+    (item: RNSelect2Item) => {
+      const newItems = selectedItems.filter((i) => i.value !== item.value);
+      setSelectedItems(newItems);
+
+      onSelect?.(newItems as any);
+    },
+    [onSelect, selectedItems]
+  );
 
   const handleSelectItem = useCallback(
     (item: RNSelect2Item) => {

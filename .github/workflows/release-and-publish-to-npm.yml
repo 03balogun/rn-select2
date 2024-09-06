@@ -1,15 +1,14 @@
 name: 'Release & Publish to NPM'
 
 on:
-  workflow_run:
-    workflows: ["Run Tests"]
-    branches: [main]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: github.event.commits[0].message | startsWith('Merge pull request')
     permissions:
       packages: write
       contents: read
