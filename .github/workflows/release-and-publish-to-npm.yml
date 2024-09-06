@@ -1,4 +1,4 @@
-name: Release and Publish to npm
+name: 'Release & Publish to NPM'
 
 on:
   workflow_run:
@@ -10,40 +10,30 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      packages: write
+      contents: read
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+          token: ${{ secrets.PAT }}
+      - name: Install the dependencies
+        uses: borales/actions-yarn@v4
         with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
+          cmd: install
       - name: Initialize Git user
         run: |
           git config --global user.email "03balogun@gmail.com"
           git config --global user.name "Release God"
-          git remote set-url origin https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git
-        env:
-          PAT: ${{ secrets.PAT }}
-
       - name: Initialize npm config
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Release
         run: npm run release --ci
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: End Message
         run: echo "Release process completed"
