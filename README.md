@@ -1,9 +1,11 @@
-# RN-Select2
+[![NPM](https://nodei.co/npm/rn-select2.png?downloads=true)](https://nodei.co/npm/rn-select2/)
 
-A highly customizable and feature-rich Select component for React Native applications.
+[![npm version](https://badge.fury.io/js/rn-select2.svg)](https://badge.fury.io/js/rn-select2) [![GitHub stars](https://img.shields.io/github/stars/03balogun/rn-select2?style=social)](https://github.com/03balogun/rn-select2/stargazers) [![CodeQL](https://github.com/03balogun/rn-select2/actions/workflows/codeql.yml/badge.svg)](https://github.com/03balogun/rn-select2/actions/workflows/codeql.yml) [![Release & Publish to NPM](https://github.com/03balogun/rn-select2/actions/workflows/release-and-publish-to-npm.yml/badge.svg)](https://github.com/03balogun/rn-select2/actions/workflows/release-and-publish-to-npm.yml)
 
-## Description
+# RN-Select2 (React Native select2)
+
 rn-select2 is a powerful and flexible dropdown component for React Native, inspired by the popular Select2 jQuery plugin. It provides a seamless and intuitive selection experience for both single and multi-select scenarios.
+
 
 ## Features
 
@@ -20,13 +22,13 @@ rn-select2 is a powerful and flexible dropdown component for React Native, inspi
 
 - [Installation](#installation)
 - [Features](#features)
+- [Demo](#demo)
+  - [Image](#image)
+  - [Video](#video)
 - [Basic Usage](#basic-usage)
 - [Props](#props)
 - [Styling](#styling)
 - [Examples](#examples)
-- [Demo](#demo)
-  - [Image](#image)
-  - [Video](#video)
 - [Contributing](#contributing)
 - [License](#license)
 
