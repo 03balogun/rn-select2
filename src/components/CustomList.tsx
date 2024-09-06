@@ -29,7 +29,11 @@ export const CustomList: React.FC<CustomListProps> = ({
 
   if (flattenedData.length <= threshold) {
     return (
-      <Animated.ScrollView layout={LinearTransition} entering={FadeInDown}>
+      <Animated.ScrollView
+        nestedScrollEnabled
+        layout={LinearTransition}
+        entering={FadeInDown}
+      >
         {flattenedData.map((item) => (
           <View key={keyExtractor(item as RenderItemProps)}>
             {renderItem(item as RenderItemProps)}
@@ -41,6 +45,7 @@ export const CustomList: React.FC<CustomListProps> = ({
 
   return (
     <FlatList
+      nestedScrollEnabled
       data={flattenedData as RenderItemProps[]}
       renderItem={({ item }) => renderItem(item)}
       keyExtractor={keyExtractor}
