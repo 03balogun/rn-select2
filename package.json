@@ -1,5 +1,5 @@
 {
-  "name": "react-native-select2",
+  "name": "rn-select2",
   "version": "0.1.0",
   "description": "A highly customizable and feature-rich Select component for React Native applications.",
   "source": "./src/index.tsx",
@@ -36,7 +36,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-select2-example",
+    "example": "yarn workspace rn-select2-example",
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -47,18 +47,20 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "select-picker",
+    "select2"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/03balogun/react-native-select2.git"
+    "url": "git+https://github.com/03balogun/rn-select2.git"
   },
   "author": "Wahab Balogun <hello@bwahab.com> (https://github.com/03balogun)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/03balogun/react-native-select2/issues"
+    "url": "https://github.com/03balogun/rn-select2/issues"
   },
-  "homepage": "https://github.com/03balogun/react-native-select2#readme",
+  "homepage": "https://github.com/03balogun/rn-select2#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -67,6 +69,8 @@
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "^0.73.1",
     "@release-it/conventional-changelog": "^5.0.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^12.6.1",
     "@types/jest": "^29.5.5",
     "@types/react": "^18.2.44",
     "commitlint": "^17.0.2",
@@ -75,10 +79,12 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "jest": "^29.7.0",
+    "jest-expo": "^51.0.4",
     "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-native": "0.74.5",
     "react-native-builder-bob": "^0.30.0",
+    "react-native-reanimated": "^3.15.1",
     "release-it": "^15.0.0",
     "typescript": "^5.2.2"
   },
@@ -87,7 +93,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-reanimated": "*"
   },
   "workspaces": [
     "example"
@@ -98,6 +105,12 @@
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
     ]
   },
   "commitlint": {

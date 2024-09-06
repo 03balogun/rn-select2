@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-select2": ["./src/index"]
+      "rn-select2": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

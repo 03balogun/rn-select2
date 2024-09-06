@@ -1,3 +1,4 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+import { RNSelect2 } from './RNSelect2';
+export type { RNSelect2Props, RNSelect2Item } from './types';
+
+export default RNSelect2;

@@ -1,18 +1,18 @@
-# react-native-select2
+# rn-select2
 
 A highly customizable and feature-rich Select component for React Native applications.
 
 ## Installation
 
 ```sh
-npm install react-native-select2
+npm install rn-select2
 ```
 
 ## Usage
 
 
 ```js
-import { multiply } from 'react-native-select2';
+import { multiply } from 'rn-select2';
 
 // ...
 
