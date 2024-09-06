@@ -18,6 +18,25 @@ rn-select2 is a powerful and flexible dropdown component for React Native, inspi
 - Fully typed with TypeScript for improved development experience
 
 
+## Demo
+
+RN-Select2 offers a rich set of features for both single and multi-select scenarios. Here's a visual demonstration of its capabilities:
+
+### Image
+
+|  |                                                                                                                                                   |   |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| **Single Selection**<br/><br/><img src="https://github.com/user-attachments/assets/f2c48b85-5b1a-4e2b-9449-379eb542fef2" width="350px"> | **Multi Selection**<br/><br/><img src="https://github.com/user-attachments/assets/5bec031e-5272-4d61-bc5a-5a645e408e41" width="350px">                 | **Search Highlighting**<br/><br/><img src="https://github.com/user-attachments/assets/90b4b2dd-439a-416b-91d9-bc185da84332" width="350px">  |
+| **Flat List View**<br/><br/><img src="https://github.com/user-attachments/assets/18c86d57-255b-4dba-a07f-078a8bbe6ec9" width="350px"> | **Custom Styling**<br/><br/><img src="https://github.com/user-attachments/assets/07c2fcca-4e5f-42e3-b9ae-26483b6ff64e" width="350px">                      | |
+
+### Video
+
+| Android                | iOS |
+|------------------------|-----|
+| <video src="https://github.com/user-attachments/assets/97a0705d-d0f7-440a-a373-241e6c22a1e8" controls="controls" style="max-width: 100%;"></video>       | <video src="https://github.com/user-attachments/assets/60571323-7d88-4ccd-a487-34278f9f8e3a" controls="controls" style="max-width: 100%;"></video> |
+
+
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -229,24 +248,6 @@ const customStyles = {
   styles={customStyles}
 />
 ```
-
-## Demo
-
-RN-Select2 offers a rich set of features for both single and multi-select scenarios. Here's a visual demonstration of its capabilities:
-
-### Image
-
-|  |                                                                                                                                                   |   |
-|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| **Single Selection**<br/><br/><img src="https://github.com/user-attachments/assets/f2c48b85-5b1a-4e2b-9449-379eb542fef2" width="350px"> | **Multi Selection**<br/><br/><img src="https://github.com/user-attachments/assets/5bec031e-5272-4d61-bc5a-5a645e408e41" width="350px">                 | **Search Highlighting**<br/><br/><img src="https://github.com/user-attachments/assets/90b4b2dd-439a-416b-91d9-bc185da84332" width="350px">  |
-| **Flat List View**<br/><br/><img src="https://github.com/user-attachments/assets/18c86d57-255b-4dba-a07f-078a8bbe6ec9" width="350px"> | **Custom Styling**<br/><br/><img src="https://github.com/user-attachments/assets/07c2fcca-4e5f-42e3-b9ae-26483b6ff64e" width="350px">                      | |
-
-### Video
-
-| Android                | iOS |
-|------------------------|-----|
-| <video src="https://github.com/user-attachments/assets/97a0705d-d0f7-440a-a373-241e6c22a1e8" controls="controls" style="max-width: 100%;"></video>       | <video src="https://github.com/user-attachments/assets/60571323-7d88-4ccd-a487-34278f9f8e3a" controls="controls" style="max-width: 100%;"></video> |
-
 
 
 ## Contributing
