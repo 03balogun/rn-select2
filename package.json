@@ -1,6 +1,6 @@
 {
   "name": "rn-select2",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A highly customizable and feature-rich Select component for React Native applications.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -129,7 +129,8 @@
       "publish": true
     },
     "github": {
-      "release": true
+      "release": true,
+      "tokenRef": "GITHUB_TOKEN"
     },
     "plugins": {
       "@release-it/conventional-changelog": {
