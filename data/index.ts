@@ -93,7 +93,7 @@ export const groupedCountryList = {
     },
   ],
 };
-// complete the code
+
 export const countryList = {
   type: 'list',
   data: groupedCountryList.data

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -93,50 +93,61 @@ export const MultiSelectTopBar: React.FC<MultiSelectTopBarProps> = ({
   onClear,
   styles = {},
   tagStyles = {},
-}) => (
-  <View>
-    <TouchableOpacity
-      testID={'multiSelectTopBar'}
-      onPress={onPress}
-      style={[defaultStyles.topBar, styles.container]}
-      activeOpacity={0.7}
-    >
-      <Text
-        style={[
-          defaultStyles.topBarText,
-          selectedItems.length === 0 && defaultStyles.topBarPlaceholder,
-          styles.text,
-          selectedItems.length === 0 && styles.placeholder,
-        ]}
+}) => {
+  const scrollViewRef = React.useRef<ScrollView | null>(null);
+
+  useEffect(() => {
+    if (isOpen && scrollViewRef.current && selectedItems?.length > 3) {
+      scrollViewRef.current.scrollToEnd({ animated: true });
+    }
+  }, [isOpen, selectedItems?.length]);
+
+  return (
+    <View>
+      <TouchableOpacity
+        testID={'multiSelectTopBar'}
+        onPress={onPress}
+        style={[defaultStyles.topBar, styles.container]}
+        activeOpacity={0.7}
       >
-        {selectedItems.length > 0
-          ? `${selectedItems.length} selected`
-          : placeholder}
-      </Text>
-      <View style={defaultStyles.pickerRow}>
-        {selectedItems.length > 0 && (
-          <ClearButton onPress={onClear} style={styles.clearButton} />
-        )}
-        <Text style={[defaultStyles.arrow, styles.arrow]}>
-          {isOpen ? '▲' : '▼'}
+        <Text
+          style={[
+            defaultStyles.topBarText,
+            selectedItems.length === 0 && defaultStyles.topBarPlaceholder,
+            styles.text,
+            selectedItems.length === 0 && styles.placeholder,
+          ]}
+        >
+          {selectedItems.length > 0
+            ? `${selectedItems.length} selected`
+            : placeholder}
         </Text>
-      </View>
-    </TouchableOpacity>
-    {selectedItems.length > 0 && (
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={defaultStyles.tagContainer}
-      >
-        {selectedItems.map((item) => (
-          <Tag
-            key={item.value}
-            item={item}
-            onRemove={onRemoveItem}
-            styles={tagStyles}
-          />
-        ))}
-      </ScrollView>
-    )}
-  </View>
-);
+        <View style={defaultStyles.pickerRow}>
+          {selectedItems.length > 0 && (
+            <ClearButton onPress={onClear} style={styles.clearButton} />
+          )}
+          <Text style={[defaultStyles.arrow, styles.arrow]}>
+            {isOpen ? '▲' : '▼'}
+          </Text>
+        </View>
+      </TouchableOpacity>
+      {selectedItems.length > 0 && (
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={defaultStyles.tagContainer}
+          ref={scrollViewRef}
+        >
+          {selectedItems.map((item) => (
+            <Tag
+              key={item.value}
+              item={item}
+              onRemove={onRemoveItem}
+              styles={tagStyles}
+            />
+          ))}
+        </ScrollView>
+      )}
+    </View>
+  );
+};

@@ -1,11 +1,6 @@
 name: 'Release & Publish to NPM'
 
-on:
-  workflow_run:
-    workflows: ["Run Tests"]
-    branches: [main]
-    types:
-      - completed
+on: workflow_dispatch
 
 jobs:
   release:
